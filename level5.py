@@ -70,6 +70,8 @@ def eval_prefix(expression):
 
 print(eval_prefix("* + 2 1 990"))
 
+"1 + 23 + 23"
+
 #assign 102
 def nth_character(string, number):
     chars = list(string)
@@ -77,8 +79,26 @@ def nth_character(string, number):
 
 nth_character("qwe",1)
 
+#infix evaluation
 
-
+def eval_infix(expression):
+    tokens = expression.split(" ")
+    stack = []
+    
+    for token in tokens:
+        if token in ops:
+            stack.append(token)
+        else:
+            if stack:
+                operator = stack.pop()
+                arg1 = stack.pop()
+                result = ops[operator](int(arg1), int(token))
+                stack.append(result)
+            else:
+                stack.append(token)
+    return stack.pop()
+                      
+print(eval_infix("1 + 2 / 3"))
 
 
 
