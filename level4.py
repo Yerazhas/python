@@ -76,6 +76,7 @@ def alarm_clock(day, is_vacation):
 
 alarm_clock(1,True)
 
+#assign 59
 
 
 
